@@ -14,6 +14,11 @@ A modern JavaFX desktop soundboard application for Windows 11 with keybind suppo
 
 ## 📋 Requirements
 
+## 📸 Screenshots
+
+### GUI
+![SoundBoard FX Main UI](docs/soundboardfx_demo.png)
+
 - ☕ **Java 17** or higher
 - 🖥 **JavaFX 19** (included as Maven dependency)
 - 📦 **Maven 3.6+** for building
