@@ -1,0 +1,432 @@
+/* ===== ROOT VARIABLES ===== */
+.root {
+    /* Color Palette */
+    -fx-primary-bg: #0D1117;
+    -fx-secondary-bg: #161B22;
+    -fx-tertiary-bg: #21262D;
+    -fx-hover-bg: #30363D;
+    -fx-selected-bg: #1F6FEB;
+    
+    /* Text Colors */
+    -fx-text-primary: #F0F6FC;
+    -fx-text-secondary: #8B949E;
+    -fx-text-accent: #58A6FF;
+    -fx-text-success: #3FB950;
+    -fx-text-warning: #D29922;
+    -fx-text-error: #F85149;
+    
+    /* Glowing Colors */
+    -fx-glow-primary: #58A6FF;
+    -fx-glow-success: #3FB950;
+    -fx-glow-warning: #D29922;
+    -fx-glow-error: #F85149;
+    
+    /* Border Colors */
+    -fx-border-primary: #30363D;
+    -fx-border-accent: #58A6FF;
+    
+    /* Background */
+    -fx-background-color: -fx-primary-bg;
+    -fx-font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.border-pane {
+    -fx-background-color: -fx-primary-bg;
+    -fx-background-radius: 0;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.padding-medium {
+    -fx-padding: 20;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.title-label {
+    -fx-font-size: 56px;
+    -fx-font-weight: 700;
+    -fx-text-fill: linear-gradient(to right, -fx-text-primary, -fx-text-accent);
+    -fx-effect: dropshadow(gaussian, derive(-fx-glow-primary, 30%), 15, 0, 0, 0);
+}
+
+.label {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+}
+
+/* Status label styling */
+#statusLabel {
+    -fx-text-fill: -fx-text-success;
+    -fx-font-weight: 500;
+    -fx-font-size: 13px;
+}
+
+/* ===== SEPARATORS ===== */
+.separator {
+    -fx-background-color: -fx-border-primary;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.separator .line {
+    -fx-border-color: linear-gradient(to right, transparent, -fx-border-primary, transparent);
+    -fx-border-width: 0.5 0 0 0;
+    -fx-opacity: 0.8;
+}
+
+/* ===== BUTTONS ===== */
+.button {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-text-fill: -fx-text-primary;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+    -fx-padding: 12 24;
+    -fx-alignment: center;
+}
+
+.button:hover {
+    -fx-background-color: -fx-hover-bg;
+    -fx-border-color: -fx-border-accent;
+    -fx-effect: dropshadow(gaussian, derive(-fx-glow-primary, 50%), 8, 0, 0, 0);
+    -fx-text-fill: -fx-text-accent;
+}
+
+.button:pressed {
+    -fx-background-color: derive(-fx-hover-bg, -10%);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.button:focused {
+    -fx-border-color: -fx-border-accent;
+    -fx-background-color: -fx-hover-bg;
+    -fx-effect: dropshadow(gaussian, -fx-glow-primary, 6, 0, 0, 0);
+}
+
+.button:disabled {
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+}
+
+/* Special button styles */
+#addSoundButton {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-success, -40%), derive(-fx-glow-success, -60%));
+    -fx-text-fill: white;
+    -fx-border-color: -fx-glow-success;
+}
+
+#addSoundButton:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-success, -20%), derive(-fx-glow-success, -40%));
+    -fx-effect: dropshadow(gaussian, -fx-glow-success, 12, 0, 0, 0);
+}
+
+#editSoundButton {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-primary, -40%), derive(-fx-glow-primary, -60%));
+    -fx-text-fill: white;
+    -fx-border-color: -fx-glow-primary;
+}
+
+#editSoundButton:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-primary, -20%), derive(-fx-glow-primary, -40%));
+    -fx-effect: dropshadow(gaussian, -fx-glow-primary, 12, 0, 0, 0);
+}
+
+#removeSoundButton {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-error, -40%), derive(-fx-glow-error, -60%));
+    -fx-text-fill: white;
+    -fx-border-color: -fx-glow-error;
+}
+
+#removeSoundButton:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-error, -20%), derive(-fx-glow-error, -40%));
+    -fx-effect: dropshadow(gaussian, -fx-glow-error, 12, 0, 0, 0);
+}
+
+#stopAllButton {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-error, -40%), derive(-fx-glow-error, -60%));
+    -fx-text-fill: white;
+    -fx-border-color: -fx-glow-error;
+}
+
+#stopAllButton:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-glow-error, -20%), derive(-fx-glow-error, -40%));
+    -fx-effect: dropshadow(gaussian, -fx-glow-error, 12, 0, 0, 0);
+}
+
+/* ===== TABLE VIEW ===== */
+.table-view {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 4);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -fx-tertiary-bg;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -fx-border-primary;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: -fx-border-primary;
+    -fx-padding: 16 12;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: rgba(48, 54, 61, 0.5);
+    -fx-padding: 0;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: rgba(48, 54, 61, 0.6);
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(88, 166, 255, 0.2);
+    -fx-border-color: -fx-glow-primary;
+}
+
+.table-view .table-cell {
+    -fx-padding: 16 12;
+    -fx-border-width: 0;
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-row-cell:selected .table-cell {
+    -fx-text-fill: -fx-text-accent;
+    -fx-font-weight: 500;
+}
+
+/* Remove table view focus border */
+.table-view:focused {
+    -fx-border-color: -fx-border-accent;
+    -fx-effect: dropshadow(gaussian, -fx-glow-primary, 8, 0, 0, 0);
+}
+
+/* ===== SCROLL BAR ===== */
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(48, 54, 61, 0.3);
+    -fx-background-radius: 8;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -fx-text-secondary;
+    -fx-background-radius: 8;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -fx-text-primary;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: -fx-glow-primary;
+}
+
+/* Vertical scroll bar */
+.scroll-bar:vertical {
+    -fx-pref-width: 12;
+}
+
+.scroll-bar:vertical .track {
+    -fx-pref-width: 8;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-pref-width: 8;
+}
+
+/* Horizontal scroll bar */
+.scroll-bar:horizontal {
+    -fx-pref-height: 12;
+}
+
+.scroll-bar:horizontal .track {
+    -fx-pref-height: 8;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-pref-height: 8;
+}
+
+/* ===== TEXT FIELDS ===== */
+.text-field, .text-area {
+    -fx-background-color: -fx-tertiary-bg;
+    -fx-text-fill: -fx-text-primary;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12 16;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: -fx-text-secondary;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: -fx-border-accent;
+    -fx-effect: dropshadow(gaussian, -fx-glow-primary, 6, 0, 0, 0);
+    -fx-background-color: derive(-fx-tertiary-bg, 5%);
+}
+
+/* ===== DIALOG STYLING ===== */
+.dialog-pane {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0, 0, 8);
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -fx-tertiary-bg;
+    -fx-background-radius: 12 12 0 0;
+    -fx-padding: 20;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.dialog-pane .content {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-padding: 20;
+}
+
+.dialog-pane .button-bar {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-background-radius: 0 0 12 12;
+    -fx-padding: 20;
+}
+
+/* ===== ALERTS ===== */
+.alert {
+    -fx-background-color: -fx-secondary-bg;
+}
+
+.alert .header-panel {
+    -fx-background-color: -fx-tertiary-bg;
+}
+
+.alert .content.label {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-size: 14px;
+}
+
+/* ===== VBOX AND HBOX ===== */
+.vbox, .hbox {
+    -fx-alignment: center-left;
+}
+
+/* ===== REGION ===== */
+.region {
+    -fx-background-color: transparent;
+}
+
+/* ===== ANIMATIONS ===== */
+.button, .table-row-cell {
+    -fx-transition: all 0.2s ease;
+}
+
+/* ===== CUSTOM GLOW ANIMATION ===== */
+@keyframes glow {
+    0% { -fx-effect: dropshadow(gaussian, -fx-glow-primary, 5, 0, 0, 0); }
+    50% { -fx-effect: dropshadow(gaussian, -fx-glow-primary, 12, 0, 0, 0); }
+    100% { -fx-effect: dropshadow(gaussian, -fx-glow-primary, 5, 0, 0, 0); }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.button:focused,
+.text-field:focused,
+.table-view:focused {
+    -fx-border-width: 2;
+}
+
+/* ===== DARK MODE ENHANCEMENTS ===== */
+.context-menu {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 4);
+}
+
+.context-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-primary;
+    -fx-padding: 8 16;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: -fx-hover-bg;
+    -fx-text-fill: -fx-text-accent;
+}
+
+/* ===== MODERN CARD STYLING ===== */
+.card {
+    -fx-background-color: -fx-secondary-bg;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 3);
+    -fx-padding: 20;
+}
+
+.card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 6);
+    -fx-translate-y: -2;
+}
+
+/* ===== STATUS INDICATOR ===== */
+.status-indicator {
+    -fx-background-color: -fx-glow-success;
+    -fx-background-radius: 50%;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+    -fx-effect: dropshadow(gaussian, -fx-glow-success, 4, 0, 0, 0);
+}
+
+/* ===== TOOLTIP ===== */
+.tooltip {
+    -fx-background-color: -fx-tertiary-bg;
+    -fx-text-fill: -fx-text-primary;
+    -fx-border-color: -fx-border-primary;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 12px;
+    -fx-padding: 8 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 2);
+}
