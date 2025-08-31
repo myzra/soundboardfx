@@ -12,8 +12,6 @@ A modern JavaFX desktop soundboard application for Windows 11 with keybind suppo
 - 🔊 **Multi-sound Playback**: Play multiple sounds simultaneously or stop all at once
 - 🖱 **Double-click to Play**: Quickly test sounds by double-clicking table rows
 
-## 📋 Requirements
-
 ## 📸 Screenshots
 
 ### GUI
